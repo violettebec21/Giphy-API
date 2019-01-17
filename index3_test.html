@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+        <head>
+                <meta charset="UTF-8">
+                <title>Quoth the Giphy</title>
+              <!--BOOTSTRAP  -->
+              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+                crossorigin="anonymous">
+              <!-- GOOGLE FONTS -->
+              <link href="https://fonts.googleapis.com/css?family=Ranchers" rel="stylesheet">
+              <!-- CSS Files -->
+              <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+              </head>
+</head>
+
+<body>
+    <!-- using button code to dynamically populate button & text -->
+    <header id="masthead">
+        <div class="container">
+            <h1>Animal Giphy API</h1>
+        </div>
+    </header>
+    <div id="main-container" class="container">
+        <section class="main-section">
+            <h2>
+             <button data-animal="Taylor Swift">
+                        </h2>
+
+            <!-- Rendered Buttons will get Dumped Here  -->
+            <div id="animal-buttons"></div>
+        
+
+            <form id="gif-form">
+                <label for="gif-input">Add a gif, Yo!</label>
+                <input type="text" id="gif-input"><br>
+
+                <!-- Button triggers new gif to be added -->
+                <input id="add-gif" type="submit" value="Add an animal">
+            </form>
+
+            <div id="gifs-appear-here">
+            </div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="./assets/javascript/app.js"></script>
+           
+</body>
+
+</html>
