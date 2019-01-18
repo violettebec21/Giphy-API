@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Giphy Animal Homework</title>
+  <title>Giphy Homework</title>
   <style type="text/css">
     button,
     div,
@@ -12,26 +12,29 @@
       margin: 10px;
     }
   </style>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
-
+<!-- using code from past homework (Trivia Game, fridge game) to link JS to HTML dynamically -->
   <div class="container">
-    <h1>Gif Search</h1>
+    <h1>TV Shows!</h1>
 
     <!-- Rendered Buttons will get Dumped Here  -->
     <div id="buttons-view"></div>
 
-    <form id="animal-form">
-      <label for="animal-input">Add an animal!</label>
-      <input type="text" id="animal-input"><br>
+    <form id="tvShow-form">
+      <label form="tvShow-input">Add a TV Show!</label>
+      <input type="text" id="tvShow-input"><br>
 
-      <!-- Button triggers new animal to be added -->
-      <input id="add-animal" type="submit" value="Add animal">
+      <!-- Button triggers new tvShow to be added -->
+      <input id="add-tvShow" type="submit" value="Add a show">
     </form>
 
-    <!-- animals will Get Dumped Here -->
-    <div id="animals-view"></div>
+    <!-- tvShows will Get Dumped Here -->
+    <div id="tvShows-view"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>

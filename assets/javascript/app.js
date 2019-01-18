@@ -3,14 +3,16 @@ console.log("sanity");
 
 $(document).ready(function () {
 
-    // display initial array of animals
-    var animals = ["dog", "cat", "rabbit", "hamster", "skunk", "goldfish", "bird", "ferret", "sugar glider", "chinchilla", "hedgehog", "hermit crab", "gerbil", "pygmy goat", "chicken", "capybara", "teacup pig", "serval", "salamander", "frog"];
+    //using from class activity "click json" and "button triggered ajax" for AJAX call, JSON, array of items, and dynamic button population
+
+    // display initial array of tvShows
+    var tvShows = ["The Office", "Mad Men", "Friends", "Unbreakable Kimmy Schmidt", "30 Rock", "Ricky and Morty", "South Park", "Spongebob", "Schitt's Creek", "Silicon Valley", "The Walking Dead", "The Middle", "Black Mirror"];
 
     // Function for dumping the JSON content for each button into the div
-    function displayanimalInfo() {
+    function displaytvShowInfo() {
 
-        var animals = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animals + "&api_key=8I87mPazwmPjBxwELpInl2BU9Wp4C1OB";
+        var tvShows = $(this).attr("data-name");
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + tvShows + "&api_key=8I87mPazwmPjBxwELpInl2BU9Wp4C1OB";
 
         $.ajax({
             url: queryURL,
@@ -23,11 +25,11 @@ $(document).ready(function () {
             for (var i = 0; i < results.length; i++) {
 
                 // Only taking action if the photo has an appropriate rating
-                if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                if (results[i].rating !== "r") {
 
                     // Creating a div for the gif
-                        //example of JQuery selector on HTML-- dynamically created HTML element
-                    var gifDiv = $("<div>"); 
+                    //example of JQuery selector on HTML-- dynamically created HTML element
+                    var gifDiv = $("<div>");
 
                     // Storing the result item's rating
                     var rating = results[i].rating;
@@ -36,17 +38,19 @@ $(document).ready(function () {
                     var p = $("<p>").text("Rating: " + rating);
 
                     // Creating an image tag
-                    var animalImage = $("<img>");
+                    var tvShowImage = $("<img>");
 
                     // Giving the image tag an src attribute of a property pulled off the result item
-                    animalImage.attr("src", results[i].images.fixed_height.url);
+                    tvShowImage.attr("src", results[i].images.fixed_height.url);
 
-                    // Appending the paragraph and animalImage we created to the "gifDiv" div we created
+                    // Appending the paragraph and tvShowImage we created to the "gifDiv" div we created
                     gifDiv.append(p);
-                    gifDiv.append(animalImage);
+                    gifDiv.append(tvShowImage);
 
                     // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-                    $("#animals-view").prepend(gifDiv);
+                    $("#tvShows-view").prepend(gifDiv);
+
+
 
                 }
             }
@@ -56,74 +60,71 @@ $(document).ready(function () {
         });
     }
 
-    // Function for displaying animal data
+    // Function for displaying tvShow data
     function renderButtons() {
 
-        // Deleting the buttons prior to adding new animals
+        // Deleting the buttons prior to adding new tvShows
         // (this is necessary otherwise you will have repeat buttons)
         $("#buttons-view").empty();
 
-        // Looping through the array of animals
-        for (var i = 0; i < animals.length; i++) {
+        // Looping through the array of tvShows
+        for (var i = 0; i < tvShows.length; i++) {
 
-            // Then dynamically generating buttons for each animal in the array
+            // Then dynamically generating buttons for each tvShow in the array
             // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
             var a = $("<button>");
-            // Adding a class of animal to our button
-            a.addClass("animal");
+            // Adding a class of tvShow to our button
+            a.addClass("tvShow");
             // Adding a data-attribute
-            a.attr("data-name", animals[i]);
+            a.attr("data-name", tvShows[i]);
             // Providing the initial button text
-            a.text(animals[i]);
+            a.text(tvShows[i]);
             // Adding the button to the buttons-view div
             $("#buttons-view").append(a);
         }
     }
     renderButtons();
 
+    //using from class activity "6.3 pausing gifs"
+    $(".img").on("click", function () {
+        // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+        var state = $(this).attr("data-state");
+        // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+        // Then, set the image's data-state to animate
+        // Else set src to the data-still value
+        if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
+    });
+
 
     // This function handles events where one button is clicked
-    $("#add-animal").on("click", function (event) {
+    $("#add-tvShow").on("click", function (event) {
         event.preventDefault();
 
         // This line grabs the input from the textbox
-        var animal = $("#animal-input").val().trim();
+        var tvShow = $("#tvShow-input").val().trim();
 
-        // Adding the animal from the textbox to our array
-        animals.push(animal);
-        console.log(animals);
+        // Adding the tvShow from the textbox to our array
+        tvShows.push(tvShow);
+        console.log(tvShows);
 
-        // Calling renderButtons which handles the processing of our animal array
+
+        // Calling renderButtons which handles the processing of our tvShow array
         renderButtons();
     });
 
-    // Function for displaying the animal info
-    // Using $(document).on instead of $(".animal").on to add event listeners to dynamically generated elements
-    $(document).on("click", ".animal", displayanimalInfo);
+
+
+    // Function for displaying the tvShow info
+    // Using $(document).on instead of $(".tvShow").on to add event listeners to dynamically generated elements
+    $(document).on("click", ".tvShow", displaytvShowInfo);
 
     // ---------------------------------------------------------
-    //       // Creating a div for the gif
-    //       var gifDiv = $("<div>");
-
-    // // Storing the result item's rating
-    // // var rating = results[i].rating;
-
-    // // Creating a paragraph tag with the result item's rating
-    // var p = $("<p>").text("Rating: " + rating);
-
-    // // Creating an image tag
-    // var animalImage = $("<img>");
-
-    // // Giving the image tag an src attribute of a proprty pulled off the
-    // // result item
-    // animalImage.attr("src", results[i].images.fixed_height.url);
-
-    // // Appending the paragraph and animalImage we created to the "gifDiv" div we created
-    // gifDiv.append(p);
-    // gifDiv.append(animalImage);
-
-    // // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-    // $("#gifs-appear-here").prepend(gifDiv);
 
     // ---------------------------------------------------------
 
@@ -140,7 +141,7 @@ $(document).ready(function () {
 //     url: queryURL,
 //     method: "GET"
 //   }).then(function(response) {
-//     $("#animals-view").text(JSON.stringify(response));
+//     $("#tvShows-view").text(JSON.stringify(response));
 //   }).catch(function(err){
 //       console.log(err);
 //   });
