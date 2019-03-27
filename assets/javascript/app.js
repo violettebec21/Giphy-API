@@ -3,7 +3,7 @@ console.log("sanity");
 
 $(document).ready(function () {
 
-    //using from class activity "click json" and "button triggered ajax" for AJAX call, JSON, array of items, and dynamic button population
+    //using from "click json" and "button triggered ajax" assignments for AJAX call, JSON, array of items, and dynamic button population
 
     // display initial array of tvShows
     var tvShows = ["The Office", "Mad Men", "Friends", "Unbreakable Kimmy Schmidt", "30 Rock", "Ricky and Morty", "South Park", "Spongebob", "Schitt's Creek", "Silicon Valley", "The Walking Dead", "The Middle", "Black Mirror"];
@@ -49,8 +49,6 @@ $(document).ready(function () {
 
                     // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
                     $("#tvShows-view").prepend(gifDiv);
-
-
 
                 }
             }
