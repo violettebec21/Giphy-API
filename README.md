@@ -2,7 +2,7 @@
 
 ### :tv: **Demonstration:**
 
-![DEMO](https://img.youtube.com/vi/4HmsDGoOnlk/maxresdefault.jpg)](https://www.youtube.com/watch?v=4HmsDGoOnlk&feature=youtu.be)
+[DEMO](https://img.youtube.com/vi/4HmsDGoOnlk/maxresdefault.jpg)](https://www.youtube.com/watch?v=4HmsDGoOnlk&feature=youtu.be)
 
 ### Overview
 
@@ -12,9 +12,8 @@ For this project, I used the GIPHY API to create a dynamic web page that populat
 
 ### :bulb: **Key Concepts Employed**
 
-1. Learning how to comb through API documentation to use the GIPHY API.
-      [Giphy API](https://developers.giphy.com/docs/)
+1. Learning how to comb through API documentation to use the [Giphy API](https://developers.giphy.com/docs/)
 
-2. Learned to obtain an API key: created a GIPHY account + obtained an API Key by [creating an app](https://developers.giphy.com/dashboard/).
+2. Learned to obtain an API key: created a GIPHY account + obtained an API Key by [using Giphy developers dashboard](https://developers.giphy.com/dashboard/).
 
 3. Learned to dynamically populate content to HTML, make AJAX calls to APIs & how to receive JSON responses
