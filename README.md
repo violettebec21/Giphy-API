@@ -2,7 +2,7 @@
 
 ### :tv: **Demonstration:**
 
-[DEMO](https://img.youtube.com/vi/4HmsDGoOnlk/maxresdefault.jpg)](https://www.youtube.com/watch?v=4HmsDGoOnlk&feature=youtu.be)
+https://www.youtube.com/watch?v=4HmsDGoOnlk&feature=youtu.be
 
 ### Overview
 

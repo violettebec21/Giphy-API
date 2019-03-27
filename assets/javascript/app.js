@@ -1,9 +1,8 @@
-
 console.log("sanity");
 
 $(document).ready(function () {
 
-    //using from "click json" and "button triggered ajax" assignments for AJAX call, JSON, array of items, and dynamic button population
+    //utilizing from "click json" and "button triggered ajax" assignments for AJAX call, JSON, array of items, and dynamic button population
 
     // display initial array of tvShows
     var tvShows = ["The Office", "Mad Men", "Friends", "Unbreakable Kimmy Schmidt", "30 Rock", "Ricky and Morty", "South Park", "Spongebob", "Schitt's Creek", "Silicon Valley", "The Walking Dead", "The Middle", "Black Mirror"];
@@ -83,7 +82,7 @@ $(document).ready(function () {
     }
     renderButtons();
 
-    //using from class activity "6.3 pausing gifs"
+    //utilizing from class assignment "6.3 pausing gifs"
     $(".img").on("click", function () {
         // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
         var state = $(this).attr("data-state");
@@ -119,7 +118,7 @@ $(document).ready(function () {
 
 
     // Function for displaying the tvShow info
-    // Using $(document).on instead of $(".tvShow").on to add event listeners to dynamically generated elements
+    // utilizing $(document).on instead of $(".tvShow").on to add event listeners to dynamically generated elements
     $(document).on("click", ".tvShow", displaytvShowInfo);
 
     // ---------------------------------------------------------
